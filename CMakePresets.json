@@ -1,30 +1,38 @@
 {
-    "version": 3,
+    "version": 8,
     "configurePresets": [
         {
             "name": "base",
             "hidden": true,
-            "generator": "Ninja",
+            "generator": "Visual Studio 17 2022",
             "binaryDir": "${sourceDir}/out/${presetName}",
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/${presetName}/install/",
                 "CMAKE_TOOLCHAIN_FILE": {
                     "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-                     "type": "FILEPATH"
-                  }
+                    "type": "FILEPATH"
+                }
             }
         },
         {
             "name": "debug",
             "displayName": "Debug Config",
-            "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" },
-            "inherits": ["base"]
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            },
+            "inherits": [
+                "base"
+            ]
         },
         {
             "name": "release",
             "displayName": "Release Config",
-            "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" },
-            "inherits": ["base"]
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release"
+            },
+            "inherits": [
+                "base"
+            ]
         }
     ],
     "buildPresets": [
